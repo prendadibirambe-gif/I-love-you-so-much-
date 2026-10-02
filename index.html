@@ -3,18 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#ff4d6d">
-  <title>Untuk Kamu ❤️</title>
+  <meta name="theme-color" content="#0f0509">
+  <title>Special For You ✨</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #ff3366;
+      --secondary: #ff6b8b;
+      --bg-dark: #090205;
+      --card-bg: rgba(20, 8, 14,  0.65);
+      --border-glow: rgba(255, 51, 102, 0.3);
+      --text-main: #ffffff;
+      --text-muted: #d1b3bc;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       min-height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fce8ec;
+      min-height: 100dvh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -23,67 +38,74 @@
       position: relative;
     }
 
-    /* --- BOLA 3D DI BACKGROUND --- */
-    .sphere {
+    /* --- BACKGROUND AURORA & NEON ORBS --- */
+    .aurora-bg {
       position: fixed;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #ffffff, #ff758c 40%, #c9184a 90%);
-      box-shadow: 0 20px 40px rgba(201, 24, 74, 0.3);
+      inset: 0;
       z-index: 0;
       pointer-events: none;
-      animation: floatSphere 10s infinite alternate ease-in-out;
+      overflow: hidden;
     }
-    .sphere-1 { width: 150px; height: 150px; top: 10%; left: -30px; animation-duration: 12s; }
-    .sphere-2 { width: 250px; height: 250px; bottom: -50px; right: -50px; background: radial-gradient(circle at 30% 30%, #ffffff, #ffb3c1 40%, #ff4d6d 90%); }
-    .sphere-3 { width: 80px; height: 80px; top: 40%; right: 10%; animation-duration: 8s; opacity: 0.8; }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.45;
+      animation: moveOrb 15s infinite alternate ease-in-out;
+    }
+    .orb-1 { width: 350px; height: 350px; background: #ff1493; top: -100px; left: -100px; }
+    .orb-2 { width: 450px; height: 450px; background: #7b1fa2; bottom: -120px; right: -100px; animation-delay: -5s; }
+    .orb-3 { width: 250px; height: 250px; background: #ff3366; top: 40%; left: 30%; opacity: 0.25; animation-duration: 10s; }
 
-    @keyframes floatSphere {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-40px) rotate(15deg); }
+    @keyframes moveOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -40px) scale(1.15); }
     }
 
-    /* --- KARTU UTAMA 3D --- */
+    /* --- KARTU UTAMA PREMIUM GLASS --- */
     .card {
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 400px;
-      padding: 30px 25px;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 40px;
-      box-shadow: 
-        0 30px 50px rgba(201, 24, 74, 0.15),
-        inset 0 6px 15px rgba(255, 255, 255, 1),
-        inset 0 -6px 15px rgba(255, 117, 140, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.8);
+      max-width: 420px;
+      padding: 30px 24px;
+      background: var(--card-bg);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border-radius: 35px;
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      animation: fadeInCard 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .badge {
       display: table;
       margin: 0 auto 20px;
-      padding: 8px 18px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 0.75rem;
+      padding: 6px 16px;
+      background: rgba(255, 51, 102, 0.15);
+      border: 1px solid rgba(255, 51, 102, 0.4);
+      color: #ff85a2;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       border-radius: 100px;
-      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
     }
 
-    /* --- VIDEO PLAYER --- */
+    /* --- VIDEO FRAME CINEMATIC --- */
     .video-wrapper {
       width: 100%;
       aspect-ratio: 16/10;
       border-radius: 20px;
       background: #000;
       margin-bottom: 25px;
-      box-shadow: 
-        inset 0 10px 20px rgba(0,0,0,0.5),
-        0 10px 20px rgba(255, 255, 255, 0.8);
-      border: 4px solid #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(255, 51, 102, 0.2);
       overflow: hidden;
       position: relative;
     }
@@ -98,34 +120,43 @@
     /* --- TYPOGRAPHY --- */
     .title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.9rem;
-      color: #3a2a2f;
+      font-size: 1.85rem;
+      color: #fff;
       text-align: center;
-      line-height: 1.2;
+      line-height: 1.25;
       margin-bottom: 20px;
     }
-    .title span { color: #ff4d6d; font-style: italic; }
+    .title span { 
+      background: linear-gradient(135deg, #ff3366, #ff9a9e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic; 
+    }
 
     .message-box {
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.03);
       padding: 20px;
       border-radius: 20px;
       margin-bottom: 20px;
-      border: 1px solid white;
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
     .message-box p {
       font-size: 0.9rem;
       line-height: 1.8;
-      color: #6a575c;
-      margin-bottom: 10px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
       text-align: center;
+      font-weight: 300;
     }
     .message-box p:last-child { margin-bottom: 0; }
     .highlight {
       display: block;
       margin-top: 15px;
-      font-weight: 700;
-      color: #ff4d6d;
+      font-weight: 600;
+      color: #ff85a2;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
     }
 
     /* --- ANIMASI KETIK --- */
@@ -137,56 +168,50 @@
     .typing-text {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      color: #d91e52;
+      color: #ff85a2;
       font-size: 1.1rem;
-      font-weight: 700;
+      font-weight: 600;
     }
     .cursor {
       display: inline-block;
       width: 2px;
       height: 18px;
-      background: #ff4d6d;
+      background: var(--primary);
       margin-left: 4px;
       animation: blink 0.8s infinite;
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* --- TOMBOL 3D FISIK --- */
-    .btn-3d {
+    /* --- TOMBOL 3D NEON GLOW (100% AMAN & KLIKABLE) --- */
+    .btn-glow {
       width: 100%;
       padding: 16px;
       border: none;
-      border-radius: 20px;
-      background: #ff4d6d;
+      border-radius: 100px;
+      background: linear-gradient(135deg, #ff3366, #ff6b8b);
       color: white;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.05rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
       position: relative;
-      box-shadow: 
-        0 8px 0 #c9184a, 
-        0 15px 20px rgba(201, 24, 74, 0.3),
-        inset 0 4px 5px rgba(255, 255, 255, 0.4);
-      transform: translateY(0);
-      transition: all 0.1s ease;
+      box-shadow: 0 10px 30px rgba(255, 51, 102, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     
-    .btn-3d:active {
-      transform: translateY(8px);
-      box-shadow: 
-        0 0 0 #c9184a, 
-        0 5px 10px rgba(201, 24, 74, 0.3),
-        inset 0 4px 5px rgba(255, 255, 255, 0.2);
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(255, 51, 102, 0.6);
     }
+    .btn-glow:active { transform: scale(0.96); }
 
-    /* --- MODAL / POP-UP (Anti Bug) --- */
+    /* --- MODAL / POP-UP (ANTI-BUG GITHUB) --- */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      background: rgba(5, 2, 4, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 9999;
       display: none; 
       justify-content: center;
@@ -197,36 +222,37 @@
     .modal-content {
       width: 100%;
       max-width: 350px;
-      background: #fff;
+      background: #190a10;
+      border: 1px solid rgba(255, 51, 102, 0.3);
       padding: 35px 25px;
       border-radius: 35px;
       text-align: center;
-      transform: scale(0.8) translateY(30px);
+      transform: scale(0.8) translateY(20px);
       opacity: 0;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.3), inset 0 5px 15px rgba(255,255,255,1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(255, 51, 102, 0.1);
     }
     
-    .modal-icon { font-size: 4rem; margin-bottom: 10px; }
-    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #ff4d6d; margin-bottom: 10px; }
-    .modal-text { color: #6a575c; line-height: 1.6; margin-bottom: 25px; font-size: 0.95rem; }
+    .modal-icon { font-size: 3.5rem; margin-bottom: 12px; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; margin-bottom: 12px; }
+    .modal-text { color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; font-size: 0.92rem; font-weight: 300; }
     
     .btn-close {
       width: 100%;
-      padding: 15px;
-      background: #fff;
-      color: #ff4d6d;
-      border: 2px solid #ff4d6d;
-      border-radius: 20px;
+      padding: 14px;
+      background: transparent;
+      color: #ff85a2;
+      border: 1px solid rgba(255, 51, 102, 0.5);
+      border-radius: 100px;
       font-family: inherit;
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.1);
       transition: all 0.2s;
     }
-    .btn-close:active { background: #ff4d6d; color: #fff; transform: scale(0.95); }
+    .btn-close:hover { background: rgba(255, 51, 102, 0.15); color: #fff; }
 
+    /* Efek Ledakan Partikel */
     .particle {
       position: fixed; pointer-events: none; z-index: 10000;
       animation: explode 1s ease-out forwards;
@@ -239,13 +265,15 @@
 </head>
 <body>
 
-  <!-- BOLA 3D BACKGROUND -->
-  <div class="sphere sphere-1"></div>
-  <div class="sphere sphere-2"></div>
-  <div class="sphere sphere-3"></div>
+  <!-- AURORA BACKGROUND -->
+  <div class="aurora-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
 
   <main class="card">
-    <div class="badge">✨ Pesan Untukmu ✨</div>
+    <div class="badge">✨ Special Message ✨</div>
 
     <!-- VIDEO PLAYER -->
     <div class="video-wrapper">
@@ -260,30 +288,32 @@
     <section class="message-box">
       <p>Kehadiranmu sukses membawa warna yang berbeda. Meski datang dengan cara yang sederhana, langkahmu meninggalkan jejak yang bermakna.</p>
       <p>Jadilah dirimu sendiri. Kamu tidak pernah dituntut untuk menjadi sosok yang sempurna.</p>
-      <span class="highlight">Pesona aslimu itulah yang paling istimewa. 🌷</span>
+      <span class="highlight">"Pesona aslimu itulah yang paling istimewa." 🌷</span>
     </section>
 
     <div class="typewriter-wrapper">
       <span class="typing-text" id="typewriter"></span><span class="cursor"></span>
     </div>
 
-    <button class="btn-3d" onclick="bukaPesan()">💌 Buka Pesan Rahasia</button>
+    <!-- TOMBOL UTAMA -->
+    <button class="btn-glow" onclick="bukaPesan()">💌 Buka Pesan Rahasia</button>
   </main>
 
   <!-- MODAL RAHASIA -->
   <div class="modal-overlay" id="modalRahasia">
     <div class="modal-content" id="modalKonten">
-      <div class="modal-icon">💌</div>
+      <div class="modal-icon">✨</div>
       <h2 class="modal-title">Halo!</h2>
       <p class="modal-text">
         <strong>Terima kasih ya sudah hadir.</strong><br><br>
-        Semoga sesibuk apa pun harimu, selalu ada alasan buat kamu tersenyum hari ini. Dunia ini jauh lebih indah kalau kamu bahagia. ✨
+        Semoga sesibuk apa pun harimu, selalu ada alasan buat kamu tersenyum hari ini. Dunia ini jauh lebih indah kalau kamu bahagia. 🤍
       </p>
-      <button class="btn-close" onclick="tutupPesan()">Tutup Pesan ❤️</button>
+      <button class="btn-close" onclick="tutupPesan()">Tutup Pesan</button>
     </div>
   </div>
 
   <script>
+    // --- 1. EFEK KETIK ---
     const words = ["Semoga harimu menyenangkan...", "Kamu sangat berharga...", "Terima kasih untuk segalanya ✨"];
     let i = 0, j = 0, isDeleting = false;
     const typewriter = document.getElementById("typewriter");
@@ -310,6 +340,7 @@
     }
     type();
 
+    // --- 2. LOGIKA TOMBOL & MODAL AMAN GITHUB ---
     const modalOverlay = document.getElementById('modalRahasia');
     const modalKonten = document.getElementById('modalKonten');
 
@@ -323,7 +354,7 @@
     }
 
     function tutupPesan() {
-      modalKonten.style.transform = 'scale(0.8) translateY(30px)';
+      modalKonten.style.transform = 'scale(0.8) translateY(20px)';
       modalKonten.style.opacity = '0';
       setTimeout(() => {
         modalOverlay.style.display = 'none';
@@ -334,8 +365,9 @@
       if (e.target === modalOverlay) tutupPesan();
     });
 
+    // --- 3. PARTIKEL ---
     function bikinPartikel() {
-      const emojis = ['✨', '💖', '🌸'];
+      const emojis = ['✨', '💖', '🌸', '⭐'];
       for (let p = 0; p < 20; p++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
