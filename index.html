@@ -6,119 +6,68 @@
   <meta name="theme-color" content="#ff758c">
   <title>Spesial Untukmu ✨</title>
   
-  <!-- Premium Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Font Premium -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --primary: #ff758c;
-      --secondary: #ff7eb3;
       --text-main: #2b1b20;
       --text-muted: #6b5a5f;
-      --glass-bg: rgba(255, 255, 255, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.7);
-      --glass-shadow: rgba(255, 117, 140, 0.15);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     
     body {
       min-height: 100vh;
-      min-height: 100dvh;
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--text-main);
-      overflow-x: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background-color: #fdfbfb;
+      /* Background Aurora Statis supaya aman di semua HP */
+      background: linear-gradient(135deg, #fdfbfb 0%, #ffe1e8 50%, #fad0c4 100%);
       position: relative;
     }
 
-    /* Breathtaking Aurora Background */
-    .aurora-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      overflow: hidden;
-      z-index: 0;
-      background: #fdfbfb;
-      pointer-events: none;
-    }
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.6;
-      animation: float 20s infinite ease-in-out alternate;
-    }
-    .orb-1 { width: 400px; height: 400px; background: #ff758c; top: -50px; left: -100px; }
-    .orb-2 { width: 500px; height: 500px; background: #ff7eb3; bottom: -100px; right: -50px; animation-delay: -5s; }
-    .orb-3 { width: 350px; height: 350px; background: #fad0c4; top: 40%; left: 30%; animation-delay: -10s; }
-
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -50px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-      100% { transform: translate(0, 0) scale(1); }
-    }
-
-    /* Stable Glassmorphism Card */
-    .card-container {
-      width: 100%;
-      max-width: 440px;
-      z-index: 10;
-      position: relative;
-    }
-
+    /* Kartu Utama */
     .card {
       position: relative;
+      z-index: 10;
       width: 100%;
-      padding: 30px 25px;
-      border-radius: 35px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      box-shadow: 0 30px 60px var(--glass-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-      animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      max-width: 420px;
+      padding: 25px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px solid white;
+      box-shadow: 0 20px 50px rgba(255, 117, 140, 0.15);
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: table;
       margin: 0 auto 20px;
       padding: 8px 18px;
-      background: rgba(255, 255, 255, 0.9);
+      background: white;
       color: var(--primary);
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       border-radius: 100px;
-      box-shadow: 0 4px 15px rgba(255, 117, 140, 0.15);
+      box-shadow: 0 4px 10px rgba(255, 117, 140, 0.1);
     }
 
-    /* Video Frame Styling (Fixed) */
+    /* Video Player (Bersih tanpa halangan) */
     .video-wrapper {
-      position: relative;
       width: 100%;
       aspect-ratio: 16/10;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
       background: #000;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-      border: 3px solid rgba(255, 255, 255, 0.9);
-      z-index: 20;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border: 3px solid white;
+      margin-bottom: 20px;
     }
     
     video { 
@@ -126,61 +75,30 @@
       height: 100%; 
       object-fit: cover; 
       display: block;
-      cursor: pointer;
-    }
-    
-    .video-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
-      pointer-events: none;
-      z-index: 21;
-    }
-    
-    .video-status {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      padding: 6px 14px;
-      background: rgba(255, 255, 255, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      z-index: 22;
-      pointer-events: none;
     }
 
     /* Typography */
     .title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 6vw, 2.2rem);
+      font-size: clamp(1.8rem, 6vw, 2.2rem);
       color: var(--text-main);
       text-align: center;
-      margin-top: 25px;
       line-height: 1.2;
+      margin-bottom: 20px;
     }
     
     .title span {
-      background: linear-gradient(45deg, #ff758c, #ff7eb3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--primary);
       font-style: italic;
     }
 
-    /* Aesthetic Message Box */
+    /* Kotak Pesan */
     .message-container {
-      margin-top: 25px;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.6);
+      background: white;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      margin-bottom: 20px;
     }
 
     .message-container p {
@@ -203,9 +121,9 @@
 
     /* Animated Typewriter */
     .typewriter-wrapper {
-      margin: 20px 0;
       height: 24px;
       text-align: center;
+      margin-bottom: 20px;
     }
     
     .typing-text {
@@ -228,142 +146,98 @@
     
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* Premium Glow Button (Fixed Clickability) */
+    /* Tombol Utama */
     .btn-glow {
-      position: relative;
       width: 100%;
       padding: 16px;
       border: none;
       border-radius: 100px;
-      background: linear-gradient(45deg, #ff758c, #ff7eb3, #ff758c);
-      background-size: 200% auto;
+      background: var(--primary);
       color: white;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(255, 117, 140, 0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      animation: gradientFlow 3s infinite linear;
-      z-index: 30;
+      box-shadow: 0 8px 20px rgba(255, 117, 140, 0.4);
+      transition: background 0.3s, transform 0.2s;
     }
-
-    @keyframes gradientFlow { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
-    
-    .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(255, 117, 140, 0.5); }
     .btn-glow:active { transform: scale(0.96); }
 
-    /* Modal Styling (Fixed Visibility) */
+    /* Modal / Pop-Up */
     .modal {
-      position: fixed; inset: 0; z-index: 999;
+      position: fixed; inset: 0; z-index: 9999;
       display: flex; justify-content: center; align-items: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      opacity: 0; visibility: hidden; pointer-events: none;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0; visibility: hidden;
       transition: all 0.3s ease;
     }
     
-    .modal.active { 
-      opacity: 1; visibility: visible; pointer-events: auto; 
-    }
+    .modal.active { opacity: 1; visibility: visible; }
     
     .modal-content {
-      width: min(100%, 360px);
-      padding: 35px 25px;
-      background: rgba(255, 255, 255, 0.98);
+      width: 100%;
+      max-width: 350px;
+      padding: 30px 25px;
+      background: white;
       border-radius: 30px;
       text-align: center;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
-      border: 1px solid white;
-      transform: scale(0.9) translateY(20px);
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
     }
     
-    .modal.active .modal-content { transform: scale(1) translateY(0); }
+    .modal.active .modal-content { transform: translateY(0); }
     
-    .modal-icon { font-size: 3.5rem; margin-bottom: 10px; animation: floatIcon 3s infinite ease-in-out; }
-    @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    
+    .modal-icon { font-size: 3.5rem; margin-bottom: 15px; }
     .modal-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 12px; }
     .modal-text { color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; font-size: 0.95rem; }
     
     .btn-close {
       width: 100%;
       padding: 14px;
-      background: #fdf0f3;
+      background: white;
       color: var(--primary);
-      border: 2px solid #ff758c;
+      border: 2px solid var(--primary);
       border-radius: 100px;
       font-family: inherit;
       font-weight: 700;
       font-size: 0.95rem;
       cursor: pointer;
-      transition: all 0.3s;
-    }
-    .btn-close:hover { background: #ff758c; color: white; }
-
-    /* Particles */
-    .particle {
-      position: fixed; pointer-events: none; z-index: 1000;
-      animation: explode 1s ease-out forwards;
-    }
-    @keyframes explode {
-      0% { opacity: 1; transform: translate(0, 0) scale(0.5); }
-      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot)); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Animasi -->
-  <div class="aurora-bg">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+  <main class="card">
+    <div class="badge">✨ Special Message ✨</div>
 
-  <div class="card-container">
-    <main class="card">
-      <div style="text-align: center;">
-        <div class="badge">✨ Special Message ✨</div>
-      </div>
+    <!-- Pemutar Video (Tanpa overlay yang menghalangi klik) -->
+    <div class="video-wrapper">
+      <video id="myVideo" autoplay loop muted playsinline preload="metadata" controls>
+        <source src="video_cewek.mp4" type="video/mp4">
+      </video>
+    </div>
 
-      <!-- Pemutar Video -->
-      <div class="video-wrapper">
-        <video id="myVideo" autoplay loop muted playsinline preload="metadata" controls>
-          <source src="video_cewek.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-        <div class="video-status" id="videoStatus">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Menyiapkan video...
-        </div>
-      </div>
+    <h1 class="title">Teruntuk <span>Kamu</span></h1>
 
-      <h1 class="title">Teruntuk <span>Kamu</span></h1>
+    <!-- Pesan -->
+    <section class="message-container">
+      <p>Kadang, merangkai kata bukanlah keahlianku, namun membiarkan rasa kagum ini mengendap sendirian rasanya kurang tepat.</p>
+      <p>Kehadiranmu sukses membawa warna yang berbeda. Meski datang dengan cara yang sederhana, langkahmu meninggalkan jejak yang begitu bermakna di setiap hariku.</p>
+      <p>Ketahuilah, kamu tidak pernah dituntut untuk menjadi sosok yang sempurna. Cukup jadilah versi paling autentik dari dirimu sendiri.</p>
+      <span class="highlight">Karena pesona aslimu itulah yang membuatmu begitu istimewa. 🌷</span>
+    </section>
 
-      <!-- Pesan Puitis -->
-      <section class="message-container">
-        <p>Kadang, merangkai kata bukanlah keahlianku, namun membiarkan rasa kagum ini mengendap sendirian rasanya kurang tepat.</p>
-        <p>Kehadiranmu sukses membawa warna yang berbeda. Meski datang dengan cara yang sederhana, langkahmu meninggalkan jejak yang begitu bermakna di setiap hariku.</p>
-        <p>Aku sangat bersyukur atas senyum manismu, obrolan-obrolan ringan kita, dan detik-detik yang seolah biasa namun sukses menghangatkan suasana hatiku.</p>
-        <p>Ketahuilah, kamu tidak pernah dituntut untuk menjadi sosok yang sempurna. Cukup jadilah versi paling autentik dari dirimu sendiri.</p>
-        <span class="highlight">Karena pesona aslimu itulah yang membuatmu begitu istimewa. 🌷</span>
-      </section>
+    <!-- Typewriter Effect -->
+    <div class="typewriter-wrapper">
+      <span class="typing-text" id="typewriter"></span><span class="cursor"></span>
+    </div>
 
-      <!-- Typewriter Effect -->
-      <div class="typewriter-wrapper">
-        <span class="typing-text" id="typewriter"></span><span class="cursor"></span>
-      </div>
+    <!-- Tombol Buka -->
+    <button class="btn-glow" id="btnOpen" type="button">💌 Buka Pesan Rahasia</button>
+  </main>
 
-      <!-- Tombol (Pasti bisa di klik) -->
-      <button class="btn-glow" id="btnOpen" type="button">💌 Buka Pesan Rahasia</button>
-    </main>
-  </div>
-
-  <!-- Modal / Pop-Up -->
+  <!-- Modal Pesan Rahasia -->
   <div class="modal" id="modalSecret">
     <div class="modal-content">
       <div class="modal-icon">💌</div>
@@ -378,7 +252,7 @@
   </div>
 
   <script>
-    // --- 1. Typewriter Effect ---
+    // --- 1. Efek Ketik ---
     const words = [
       "Semoga harimu menyenangkan...",
       "Kamu sangat berharga...",
@@ -396,11 +270,9 @@
         typewriter.textContent = currentWord.substring(0, j + 1);
         j++;
       }
-
       let speed = isDeleting ? 40 : 80;
-
       if (!isDeleting && j === currentWord.length) {
-        speed = 2500; // Pause at end of sentence
+        speed = 2500;
         isDeleting = true;
       } else if (isDeleting && j === 0) {
         isDeleting = false;
@@ -411,38 +283,13 @@
     }
     type();
 
-    // --- 2. Modal & Particles Logic ---
+    // --- 2. Logika Tombol & Pop-Up ---
     const modal = document.getElementById('modalSecret');
     const btnOpen = document.getElementById('btnOpen');
     const btnClose = document.getElementById('btnClose');
 
-    function createParticles() {
-      const emojis = ['✨', '💖', '🌸', '🦋', '❤️'];
-      for (let p = 0; p < 20; p++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        particle.style.left = '50%';
-        particle.style.top = '50%';
-        particle.style.fontSize = (Math.random() * 15 + 15) + 'px';
-        
-        const angle = Math.random() * Math.PI * 2;
-        const velocity = 80 + Math.random() * 150;
-        const tx = Math.cos(angle) * velocity;
-        const ty = Math.sin(angle) * velocity;
-        
-        particle.style.setProperty('--tx', `${tx}px`);
-        particle.style.setProperty('--ty', `${ty}px`);
-        particle.style.setProperty('--rot', `${Math.random() * 360}deg`);
-        
-        document.body.appendChild(particle);
-        setTimeout(() => particle.remove(), 1000);
-      }
-    }
-
     btnOpen.addEventListener('click', () => {
       modal.classList.add('active');
-      createParticles();
     });
 
     btnClose.addEventListener('click', () => {
@@ -455,23 +302,11 @@
       }
     });
 
-    // --- 3. Video Status Logic (Bulletproof) ---
+    // --- 3. Cadangan Play Video ---
     const vid = document.getElementById("myVideo");
-    const vStatus = document.getElementById("videoStatus");
-    
-    // Fallback: Jika auto-play diblokir HP, klik area manapun akan memutar video
     document.body.addEventListener('click', () => {
-      if(vid.paused) { vid.play().catch(e => console.log(e)); }
+      if(vid.paused) vid.play().catch(() => {});
     }, { once: true });
-
-    vid.addEventListener("play", () => {
-      vStatus.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> Sedang diputar';
-    });
-    
-    vid.addEventListener("pause", () => {
-      vStatus.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg> Dijeda';
-    });
   </script>
 </body>
-  </html>
-  
+</html>
