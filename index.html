@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#ff6b8a">
   <title>Untuk Kamu ❤️</title>
   <style>
@@ -18,16 +18,16 @@
     @keyframes cardAppear{from{opacity:0;transform:translateY(35px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
     .top-label{display:flex;justify-content:center;align-items:center;gap:7px;margin:3px auto 15px;width:fit-content;padding:7px 13px;border-radius:100px;background:#fff0f4;color:var(--pink-dark);font-size:.72rem;font-weight:700;letter-spacing:.3px}
     .video-wrapper{position:relative;width:100%;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:#171117;box-shadow:0 12px 30px rgba(80,20,40,.2)}
-    video{width:100%;height:100%;display:block;object-fit:cover;outline:none}.video-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.05),transparent 50%,rgba(0,0,0,.18))}.video-status{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:100px;background:rgba(0,0,0,.45);color:white;font-size:.68rem;backdrop-filter:blur(8px)}
+    video{width:100%;height:100%;display:block;object-fit:cover;outline:none}.video-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.05),transparent 50%,rgba(0,0,0,.18))}.video-status{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:100px;background:rgba(0,0,0,.45);color:white;font-size:.68rem;backdrop-filter:blur(8px);pointer-events:none;}
     .title{margin-top:21px;color:#c9184a;font-size:clamp(1.45rem,6vw,1.8rem);line-height:1.2;text-align:center}.title-heart{display:inline-block;animation:heartbeat 1.4s ease-in-out infinite}@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
     .subtitle{margin-top:8px;color:var(--muted);font-size:.78rem;text-align:center}
-    .message-box{margin-top:18px;padding:19px;border-radius:20px;background:linear-gradient(145deg,#fff5f7,#fff);border:1px solid #ffe1e8;text-align:left}.message-box p{color:#66545b;font-size:.9rem;line-height:1.8;margin-bottom:12px}.message-box p:last-child{margin-bottom:0}.special{color:var(--pink-dark)!important;font-weight:700;text-align:center;font-size:.95rem!important}
+    .message-box{margin-top:18px;padding:19px;border-radius:20px;background:linear-gradient(145deg,#fff5f7,#fff);border:1px solid #ffe1e8;text-align:left}.message-box p{color:#66545b;font-size:.91rem;line-height:1.75;margin-bottom:12px}.message-box p:last-child{margin-bottom:0}.special{color:var(--pink-dark)!important;font-weight:700;text-align:center;font-size:.95rem!important}
     .typing{min-height:22px;margin-top:15px;color:var(--pink-dark);font-size:.78rem;font-style:italic;text-align:center}.cursor{display:inline-block;width:2px;height:13px;margin-left:2px;vertical-align:middle;background:var(--pink);animation:blink .8s infinite}@keyframes blink{50%{opacity:0}}
-    .main-button{position:relative;width:100%;margin-top:17px;padding:14px 20px;border:0;border-radius:100px;background:linear-gradient(135deg,#ff5b7f,#d91e52);color:white;font-size:.9rem;font-weight:700;letter-spacing:.2px;cursor:pointer;overflow:hidden;box-shadow:0 10px 25px rgba(217,30,82,.3);transition:transform .2s ease,box-shadow .2s ease;z-index:10}.main-button::before{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}.main-button:hover::before{left:140%}.main-button:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(217,30,82,.38)}.main-button:active{transform:scale(.97)}
+    .main-button{position:relative;z-index:10;width:100%;margin-top:17px;padding:14px 20px;border:0;border-radius:100px;background:linear-gradient(135deg,#ff5b7f,#d91e52);color:white;font-size:.9rem;font-weight:700;letter-spacing:.2px;cursor:pointer;overflow:hidden;box-shadow:0 10px 25px rgba(217,30,82,.3);transition:transform .2s ease,box-shadow .2s ease}.main-button::before{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}.main-button:hover::before{left:140%}.main-button:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(217,30,82,.38)}.main-button:active{transform:scale(.97)}
     .footer{margin-top:14px;color:#ad979e;text-align:center;font-size:.66rem}
     
-    /* Modal Anti-Bug Murni */
-    .modal{position:fixed;inset:0;z-index:9999;display:none;justify-content:center;align-items:center;padding:20px;background:rgba(63,13,29,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    /* Perbaikan Modal Anti-Bug */
+    .modal{position:fixed;inset:0;z-index:99999;display:none;justify-content:center;align-items:center;padding:20px;background:rgba(63,13,29,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
     .modal.show{display:flex}
     .modal-card{width:min(100%,360px);padding:28px 23px;border-radius:27px;background:linear-gradient(145deg,#fff,#fff3f6);text-align:center;box-shadow:0 25px 70px rgba(0,0,0,.25);transform:scale(0.8);opacity:0;transition:all 0.35s cubic-bezier(.2,.8,.2,1)}
     .modal.show .modal-card{transform:scale(1);opacity:1}
@@ -36,7 +36,7 @@
     .modal-card p{color:#68575e;font-size:.9rem;line-height:1.7;margin-bottom:20px;text-align:left}
     .close-button{border:0;border-radius:100px;padding:10px 22px;background:#ff4f75;color:white;font-weight:700;cursor:pointer;width:100%}
     
-    .burst-heart{position:fixed;z-index:50000;pointer-events:none;font-size:20px;animation:burst .9s ease-out forwards}@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(.5)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1.3)}}
+    .burst-heart{position:fixed;z-index:100000;pointer-events:none;font-size:20px;animation:burst .9s ease-out forwards}@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(.5)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1.3)}}
     @media(max-width:380px){body{padding:12px 10px}.card{padding:14px;border-radius:25px}.video-wrapper{border-radius:18px}.message-box{padding:16px}.message-box p{font-size:.86rem}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
   </style>
@@ -72,20 +72,19 @@
 
     <p class="subtitle">Ada sesuatu yang ingin aku sampaikan...</p>
 
-    <!-- KATA-KATA YANG DIPERBAIKI, DIPERPANJANG, DAN LEBIH MENYENTUH -->
     <section class="message-box">
-      <p>Terkadang, merangkai kata bukanlah hal yang mudah bagiku, namun membiarkan rasa kagum ini tersimpan sendirian rasanya sungguh keliru.</p>
-      <p>Kehadiranmu di hari-hari biasa berhasil memberikan warna yang berbeda. Hal-hal kecil tentangmu, cara sederhana kamu tertawa, selalu meninggalkan kesan yang begitu berarti di benakku.</p>
-      <p>Terima kasih sudah menjadi alasan di balik senyuman kecilku, untuk setiap obrolan hangat yang kita lewati, dan ketulusan yang selalu kamu tunjukkan.</p>
-      <p>Ingatlah satu hal: kamu tidak pernah harus menjadi sempurna untuk dihargai. Cukup tetaplah menjadi dirimu sendiri, karena pesona aslimu sudah lebih dari cukup untuk membuat dunia ini terasa lebih menyenangkan.</p>
-      <p class="special">Terima kasih karena sudah terlahir dan hadir membawa kebaikan. 🌷❤️</p>
+      <p>Aku mungkin nggak selalu pandai menyampaikan apa yang ada di pikiranku, tapi ada beberapa hal yang rasanya terlalu indah kalau cuma disimpan sendiri.</p>
+      <p>Salah satunya adalah tentang kamu. Tentang bagaimana seseorang bisa hadir dengan cara yang sederhana, tapi meninggalkan kesan yang begitu berarti.</p>
+      <p>Terima kasih untuk setiap senyum, setiap obrolan kecil, dan setiap momen yang mungkin terlihat biasa saja, tapi ternyata mampu membuat hari terasa jauh lebih menyenangkan.</p>
+      <p>Aku nggak ingin kamu merasa harus menjadi sempurna untuk pantas dihargai. Kamu nggak perlu berubah menjadi orang lain untuk menjadi seseorang yang berarti.</p>
+      <p class="special">Tetaplah menjadi dirimu sendiri. Karena ada sesuatu yang indah dari caramu menjadi kamu. 🌷❤️</p>
     </section>
 
     <div class="typing"><span id="typingText"></span><span class="cursor"></span></div>
 
     <button class="main-button" id="openButton" type="button">💌 Buka Pesan Rahasia</button>
 
-    <div class="footer">Dibuat dengan kode, waktu, dan ketulusan. ❤️</div>
+    <div class="footer">Dibuat dengan kode, waktu, dan sedikit rasa. ❤️</div>
   </main>
 
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -93,13 +92,13 @@
       <div class="modal-heart">💗</div>
       <h2 id="modalTitle">Untuk Kamu...</h2>
       <p>
-        Kalau kamu sudah membaca sampai titik ini, aku cuma ingin menitipkan satu harapan kecil:
+        Kalau kamu sudah sampai di sini, aku cuma ingin bilang satu hal:
         <br><br>
-        <strong>Terima kasih sudah berjuang dan bertahan sejauh ini.</strong>
+        <strong>Terima kasih sudah hadir.</strong>
         <br><br>
-        Semoga sesibuk dan selelah apa pun harimu, selalu ada ruang untuk dirimu beristirahat dan tersenyum. Jangan pernah lupa bahwa kamu sangat berharga. 🌸
+        Semoga sesibuk apa pun harimu, selalu ada sedikit ruang untuk tersenyum dan mengingat bahwa kamu berharga. 🌸
         <br><br>
-        Semoga semesta selalu mempertemukanmu dengan hal-hal baik dan orang-orang tulus di setiap langkahmu. ❤️
+        Dan semoga selalu ada hal-hal kecil yang membuatmu bahagia, bahkan di hari yang paling biasa sekalipun. ❤️
       </p>
       <button class="close-button" id="closeButton" type="button">Tutup ❤️</button>
     </div>
@@ -136,7 +135,7 @@
     });
 
     function createHeartBurst() {
-      const hearts = ["❤️", "💕", "💗", "💖", "💓"];
+      const hearts = ["❤️️", "💕", "💗", "💖", "💓"];
 
       for (let i = 0; i < 16; i++) {
         const heart = document.createElement("span");
@@ -155,8 +154,7 @@
     const sentences = [
       "Semoga kamu selalu punya alasan untuk tersenyum. ❤️",
       "Beberapa orang memang hadir untuk membuat hari lebih indah. 🌷",
-      "Dan mungkin, kamu adalah salah satunya. 💕",
-      "Tetaplah menjadi dirimu yang luar biasa. ✨"
+      "Dan mungkin, kamu adalah salah satunya. 💕"
     ];
 
     let sentenceIndex = 0;
@@ -172,7 +170,7 @@
 
         if (characterIndex === current.length) {
           deleting = true;
-          setTimeout(typeEffect, 2500);
+          setTimeout(typeEffect, 2200);
           return;
         }
       } else {
@@ -185,7 +183,7 @@
         }
       }
 
-      setTimeout(typeEffect, deleting ? 30 : 50);
+      setTimeout(typeEffect, deleting ? 35 : 55);
     }
 
     typeEffect();
