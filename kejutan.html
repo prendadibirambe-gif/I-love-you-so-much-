@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ff4d6d">
+  <title>Untuk Kamu ❤️</title>
+  
+  <!-- Font Premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fce8ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* --- BOLA 3D DI BACKGROUND --- */
+    .sphere {
+      position: fixed;
+      border-radius: 50%;
+      /* Efek cahaya 3D pada bola */
+      background: radial-gradient(circle at 30% 30%, #ffffff, #ff758c 40%, #c9184a 90%);
+      box-shadow: 0 20px 40px rgba(201, 24, 74, 0.3);
+      z-index: 0;
+      pointer-events: none;
+      animation: floatSphere 10s infinite alternate ease-in-out;
+    }
+    .sphere-1 { width: 150px; height: 150px; top: 10%; left: -30px; animation-duration: 12s; }
+    .sphere-2 { width: 250px; height: 250px; bottom: -50px; right: -50px; background: radial-gradient(circle at 30% 30%, #ffffff, #ffb3c1 40%, #ff4d6d 90%); }
+    .sphere-3 { width: 80px; height: 80px; top: 40%; right: 10%; animation-duration: 8s; opacity: 0.8; }
+
+    @keyframes floatSphere {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-40px) rotate(15deg); }
+    }
+
+    /* --- KARTU UTAMA 3D (CLAYMORPHISM) --- */
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 400px;
+      padding: 30px 25px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 40px;
+      /* Efek tebal dan menonjol */
+      box-shadow: 
+        0 30px 50px rgba(201, 24, 74, 0.15),
+        inset 0 6px 15px rgba(255, 255, 255, 1),
+        inset 0 -6px 15px rgba(255, 117, 140, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .badge {
+      display: table;
+      margin: 0 auto 20px;
+      padding: 8px 18px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 100px;
+      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+    }
+
+    /* --- VIDEO PLAYER --- */
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: 20px;
+      background: #000;
+      margin-bottom: 25px;
+      /* Frame video 3D menjorok ke dalam */
+      box-shadow: 
+        inset 0 10px 20px rgba(0,0,0,0.5),
+        0 10px 20px rgba(255, 255, 255, 0.8);
+      border: 4px solid #fff;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    video { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block;
+    }
+
+    /* --- TYPOGRAPHY --- */
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: #3a2a2f;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .title span { color: #ff4d6d; font-style: italic; }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid white;
+    }
+    .message-box p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #6a575c;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .message-box p:last-child { margin-bottom: 0; }
+    .highlight {
+      display: block;
+      margin-top: 15px;
+      font-weight: 700;
+      color: #ff4d6d;
+    }
+
+    /* --- ANIMASI KETIK --- */
+    .typewriter-wrapper {
+      height: 24px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .typing-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #d91e52;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 18px;
+      background: #ff4d6d;
+      margin-left: 4px;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* --- TOMBOL 3D FISIK (ANTI BUG) --- */
+    .btn-3d {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      position: relative;
+      /* Efek balok tebal */
+      box-shadow: 
+        0 8px 0 #c9184a, 
+        0 15px 20px rgba(201, 24, 74, 0.3),
+        inset 0 4px 5px rgba(255, 255, 255, 0.4);
+      transform: translateY(0);
+      transition: all 0.1s ease;
+    }
+    
+    /* Reaksi tombol saat ditekan */
+    .btn-3d:active {
+      transform: translateY(8px);
+      box-shadow: 
+        0 0 0 #c9184a, 
+        0 5px 10px rgba(201, 24, 74, 0.3),
+        inset 0 4px 5px rgba(255, 255, 255, 0.2);
+    }
+
+    /* --- MODAL / POP-UP (Pasti jalan 100%) --- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: none; /* Mati total dari sistem saat tidak dipanggil */
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .modal-content {
+      width: 100%;
+      max-width: 350px;
+      background: #fff;
+      padding: 35px 25px;
+      border-radius: 35px;
+      text-align: center;
+      transform: scale(0.8) translateY(30px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      /* 3D Box Shadow */
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3), inset 0 5px 15px rgba(255,255,255,1);
+    }
+    
+    .modal-icon { font-size: 4rem; margin-bottom: 10px; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #ff4d6d; margin-bottom: 10px; }
+    .modal-text { color: #6a575c; line-height: 1.6; margin-bottom: 25px; font-size: 0.95rem; }
+    
+    .btn-close {
+      width: 100%;
+      padding: 15px;
+      background: #fff;
+      color: #ff4d6d;
+      border: 2px solid #ff4d6d;
+      border-radius: 20px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 77, 109, 0.1);
+      transition: all 0.2s;
+    }
+    .btn-close:active { background: #ff4d6d; color: #fff; transform: scale(0.95); }
+
+    /* Efek Partikel */
+    .particle {
+      position: fixed; pointer-events: none; z-index: 10000;
+      animation: explode 1s ease-out forwards;
+    }
+    @keyframes explode {
+      0% { opacity: 1; transform: translate(0, 0) scale(0.5); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BOLA 3D BACKGROUND -->
+  <div class="sphere sphere-1"></div>
+  <div class="sphere sphere-2"></div>
+  <div class="sphere sphere-3"></div>
+
+  <main class="card">
+    <div class="badge">✨ Pesan Untukmu ✨</div>
+
+    <!-- VIDEO PLAYER -->
+    <div class="video-wrapper">
+      <video id="myVideo" autoplay loop muted playsinline preload="metadata" controls>
+        <source src="video_cewek.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <h1 class="title">Teruntuk <span>Kamu</span></h1>
+
+    <!-- KOTAK PESAN -->
+    <section class="message-box">
+      <p>Kehadiranmu sukses membawa warna yang berbeda. Meski datang dengan cara yang sederhana, langkahmu meninggalkan jejak yang bermakna.</p>
+      <p>Jadilah dirimu sendiri. Kamu tidak pernah dituntut untuk menjadi sosok yang sempurna.</p>
+      <span class="highlight">Pesona aslimu itulah yang paling istimewa. 🌷</span>
+    </section>
+
+    <div class="typewriter-wrapper">
+      <span class="typing-text" id="typewriter"></span><span class="cursor"></span>
+    </div>
+
+    <!-- TOMBOL PANGGIL JAVASCRIPT LANGSUNG (ANTI BUG) -->
+    <button class="btn-3d" onclick="bukaPesan()">💌 Buka Pesan Rahasia</button>
+  </main>
+
+  <!-- MODAL RAHASIA -->
+  <div class="modal-overlay" id="modalRahasia">
+    <div class="modal-content" id="modalKonten">
+      <div class="modal-icon">💌</div>
+      <h2 class="modal-title">Halo!</h2>
+      <p class="modal-text">
+        <strong>Terima kasih ya sudah hadir.</strong><br><br>
+        Semoga sesibuk apa pun harimu, selalu ada alasan buat kamu tersenyum hari ini. Dunia ini jauh lebih indah kalau kamu bahagia. ✨
+      </p>
+      <button class="btn-close" onclick="tutupPesan()">Tutup Pesan ❤️</button>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. EFEK KETIK ---
+    const words = ["Semoga harimu menyenangkan...", "Kamu sangat berharga...", "Terima kasih untuk segalanya ✨"];
+    let i = 0, j = 0, isDeleting = false;
+    const typewriter = document.getElementById("typewriter");
+
+    function type() {
+      const currentWord = words[i];
+      if (isDeleting) {
+        typewriter.textContent = currentWord.substring(0, j - 1);
+        j--;
+      } else {
+        typewriter.textContent = currentWord.substring(0, j + 1);
+        j++;
+      }
+      let speed = isDeleting ? 30 : 60;
+      if (!isDeleting && j === currentWord.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        speed = 400;
+      }
+      setTimeout(type, speed);
+    }
+    type();
+
+    // --- 2. LOGIKA TOMBOL & MODAL (SANGAT AMAN) ---
+    const modalOverlay = document.getElementById('modalRahasia');
+    const modalKonten = document.getElementById('modalKonten');
+
+    function bukaPesan() {
+      // Nyalakan elemen ke layar
+      modalOverlay.style.display = 'flex';
+      
+      // Kasih delay 10ms biar animasinya main halus
+      setTimeout(() => {
+        modalKonten.style.transform = 'scale(1) translateY(0)';
+        modalKonten.style.opacity = '1';
+      }, 10);
+      
+      // Ledakan Partikel
+      bikinPartikel();
+    }
+
+    function tutupPesan() {
+      // Mainkan animasi mundur
+      modalKonten.style.transform = 'scale(0.8) translateY(30px)';
+      modalKonten.style.opacity = '0';
+      
+      // Hilangkan total dari layar setelah animasi selesai
+      setTimeout(() => {
+        modalOverlay.style.display = 'none';
+      }, 400); // 400ms sama dengan waktu transisi CSS
+    }
+
+    // Tutup kalau area gelap di luar kotak diklik
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) tutupPesan();
+    });
+
+    // --- 3. PARTIKEL ---
+    function bikinPartikel() {
+      const emojis = ['✨', '💖', '🌸'];
+      for (let p = 0; p < 20; p++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        particle.style.fontSize = (Math.random() * 15 + 15) + 'px';
+        
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 80 + Math.random() * 150;
+        particle.style.setProperty('--tx', `${Math.cos(angle) * velocity}px`);
+        particle.style.setProperty('--ty', `${Math.sin(angle) * velocity}px`);
+        particle.style.setProperty('--rot', `${Math.random() * 360}deg`);
+        
+        document.body.appendChild(particle);
+        setTimeout(() => particle.remove(), 1000);
+      }
+    }
+  </script>
+</body>
+    </html>
+    
