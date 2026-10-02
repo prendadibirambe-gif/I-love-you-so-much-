@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ff4b78">
+<meta name="description" content="Sebuah pesan kecil untukmu ❤️">
+<title>Untuk Kamu ❤️</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#ff4775;--pink2:#d91550;--ink:#4b3540;
+  --glass:rgba(255,255,255,.67);--line:rgba(255,255,255,.78);
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;min-height:100dvh;overflow-x:hidden;
+  display:grid;place-items:center;padding:18px;
+  font-family:Inter,"Segoe UI",system-ui,sans-serif;color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%,#fff 0,transparent 24%),
+    radial-gradient(circle at 90% 85%,#ff8eab 0,transparent 31%),
+    linear-gradient(135deg,#ffe6ed,#ffb4c8 48%,#ffdce5);
+  perspective:1400px;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(2px);
+  box-shadow:inset 0 0 50px rgba(255,255,255,.55),0 20px 70px rgba(210,25,75,.12);
+  animation:orb 10s ease-in-out infinite alternate}
+.o1{width:180px;height:180px;top:-55px;left:-45px;background:#ffd3df}
+.o2{width:230px;height:230px;right:-90px;bottom:-75px;background:#ff9fba;animation-delay:-4s}
+@keyframes orb{to{transform:translate(35px,25px) scale(1.15)}}
+
+.hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.h{position:absolute;bottom:-40px;opacity:0;filter:drop-shadow(0 8px 8px #a8184a33);
+  animation:up linear infinite}
+.h:nth-child(1){left:7%;animation-duration:10s}.h:nth-child(2){left:22%;animation-duration:13s;animation-delay:2s}
+.h:nth-child(3){left:42%;animation-duration:9s;animation-delay:4s}.h:nth-child(4){left:62%;animation-duration:12s;animation-delay:1s}
+.h:nth-child(5){left:81%;animation-duration:11s;animation-delay:3s}
+@keyframes up{0%{transform:translateY(0) rotate(0) scale(.5);opacity:0}15%{opacity:.65}100%{transform:translateY(-115vh) rotate(360deg) scale(1.25);opacity:0}}
+
+.card{
+  position:relative;z-index:3;width:min(100%,455px);padding:18px;border-radius:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(255,255,255,.48));
+  border:1px solid var(--line);backdrop-filter:blur(28px) saturate(145%);
+  -webkit-backdrop-filter:blur(28px) saturate(145%);
+  box-shadow:0 40px 90px rgba(105,20,50,.25),0 14px 30px rgba(105,20,50,.14),
+             inset 0 1px 0 #fff,inset 0 -8px 25px rgba(180,20,70,.04);
+  transform-style:preserve-3d;transition:transform .18s ease,box-shadow .18s ease;
+  animation:enter .9s cubic-bezier(.16,1,.3,1);
+  overflow:hidden;
+}
+.card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 0 0 1px #ffffff55}
+@keyframes enter{from{opacity:0;transform:translateY(45px) rotateX(8deg) scale(.94)}to{opacity:1;transform:none}}
+
+.label{
+  width:max-content;margin:3px auto 15px;padding:8px 14px;border-radius:99px;
+  color:#c9144a;font-size:.72rem;font-weight:800;letter-spacing:.2px;
+  background:linear-gradient(145deg,#fff,#ffe9ef);border:1px solid #fff;
+  box-shadow:0 8px 20px #c51d5317,inset 0 1px #fff;transform:translateZ(35px)
+}
+.video{
+  position:relative;aspect-ratio:16/10;border-radius:25px;overflow:hidden;
+  background:#180d13;border:2px solid #ffffff99;transform:translateZ(45px);
+  box-shadow:0 25px 35px #6e18382b,0 8px 15px #6e18382b;
+}
+video{width:100%;height:100%;display:block;object-fit:cover}
+.video:after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(125deg,#fff4,transparent 25%,transparent 70%,#ff507015)}
+.status{position:absolute;left:12px;bottom:12px;padding:7px 11px;border-radius:99px;
+  color:#fff;background:#160b1290;border:1px solid #ffffff33;backdrop-filter:blur(10px);
+  font-size:.68rem;z-index:2}
+.title{margin-top:24px;text-align:center;color:#c9144a;font-size:clamp(1.5rem,6vw,1.9rem);
+  line-height:1.16;text-shadow:0 5px 12px #c9144a20;transform:translateZ(32px)}
+.heart{display:inline-block;animation:beat 1.45s ease-in-out infinite;filter:drop-shadow(0 7px 7px #c9144a44)}
+@keyframes beat{0%,100%{transform:scale(1)}18%{transform:scale(1.2)}35%{transform:scale(1)}55%{transform:scale(1.1)}}
+.sub{margin-top:9px;text-align:center;color:#8b737b;font-size:.78rem;transform:translateZ(25px)}
+
+.message{
+  margin-top:18px;padding:19px;border-radius:23px;transform:translateZ(25px);
+  background:linear-gradient(145deg,#fff9faeF,#ffffffe0);border:1px solid #ffdce5;
+  box-shadow:0 16px 30px #7b183a14,inset 0 1px #fff;
+}
+.message p{font-size:.9rem;line-height:1.75;color:#66545b;margin-bottom:12px}
+.message p:last-child{margin:0}
+.special{text-align:center;color:#c9154a!important;font-weight:800}
+
+.typing{height:24px;margin-top:14px;text-align:center;color:#c9154a;font-size:.78rem;font-style:italic;transform:translateZ(22px)}
+.cursor{display:inline-block;width:2px;height:13px;background:#ff4775;vertical-align:middle;animation:blink .8s infinite}
+@keyframes blink{50%{opacity:0}}
+
+.main{
+  width:100%;margin-top:16px;padding:15px 20px;border:0;border-radius:99px;
+  color:#fff;font-weight:800;font-size:.9rem;cursor:pointer;transform:translateZ(35px);
+  background:linear-gradient(145deg,#ff6688,#dc1852);
+  box-shadow:0 9px 0 #af123f,0 20px 30px #c91c531f,inset 0 1px #ffffff77;
+  transition:.15s ease
+}
+.main:hover{transform:translateZ(45px) translateY(-3px);box-shadow:0 12px 0 #af123f,0 25px 35px #c91c5333}
+.main:active{transform:translateZ(24px) translateY(6px);box-shadow:0 3px 0 #af123f}
+.footer{text-align:center;margin-top:15px;color:#ad929c;font-size:.65rem;transform:translateZ(20px)}
+
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;
+  background:#36091f73;backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:.3s}
+.modal.show{opacity:1;visibility:visible}
+.modal-card{
+  width:min(100%,370px);padding:30px 24px;border-radius:30px;text-align:center;
+  background:linear-gradient(145deg,#fffffff7,#fff0f5f0);border:1px solid #fff;
+  box-shadow:0 45px 90px #2d031466,inset 0 1px #fff;
+  transform:perspective(900px) rotateX(12deg) scale(.75) translateY(30px);
+  transition:.5s cubic-bezier(.16,1,.3,1)
+}
+.modal.show .modal-card{transform:perspective(900px) rotateX(0) scale(1) translateY(0)}
+.modal-heart{font-size:3.2rem;animation:beat 1.4s infinite}
+.modal h2{margin:8px 0 12px;color:#c9154a}.modal p{font-size:.9rem;line-height:1.75;color:#68575e;margin-bottom:20px}
+.close{border:0;border-radius:99px;padding:11px 24px;color:#fff;font-weight:800;cursor:pointer;
+  background:linear-gradient(145deg,#ff5a7d,#d91e52);box-shadow:0 6px 0 #ae1642,0 12px 20px #c9144a33}
+.close:active{transform:translateY(4px);box-shadow:0 2px 0 #ae1642}
+
+.burst{position:fixed;z-index:100;pointer-events:none;font-size:21px;animation:burst .9s ease-out forwards}
+@keyframes burst{from{opacity:1;transform:translate3d(0,0,0) scale(.2)}
+to{opacity:0;transform:translate3d(var(--x),var(--y),0) rotate(var(--r)) scale(1.35)}}
+
+.error{display:none;position:absolute;inset:0;z-index:5;place-items:center;padding:20px;text-align:center;
+  color:#fff;background:linear-gradient(145deg,#761b3d,#260b17);font-size:.82rem;line-height:1.6}
+.error.show{display:grid}
+
+@media(max-width:480px){
+  body{padding:10px}.card{padding:14px;border-radius:28px}.video{border-radius:21px}
+  .message{padding:17px}.message p{font-size:.86rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body>
+<div class="orb o1"></div><div class="orb o2"></div>
+
+<div class="hearts">
+  <span class="h">❤️</span><span class="h">💕</span><span class="h">💗</span>
+  <span class="h">💖</span><span class="h">💓</span>
+</div>
+
+<main class="card" id="card">
+  <div class="label">✨ Sebuah pesan kecil untukmu ✨</div>
+
+  <div class="video">
+    <video id="video" autoplay loop muted playsinline preload="metadata" controls>
+      <source src="./video_cewek.mp4" type="video/mp4">
+    </video>
+    <div class="status" id="status">🎬 Memories</div>
+    <div class="error" id="error">⚠️ Video belum ditemukan.<br>Pastikan <b>video_cewek.mp4</b> berada di folder yang sama dengan index.html.</div>
+  </div>
+
+  <h1 class="title">Untuk Kamu yang<br>Selalu Spesial <span class="heart">❤️</span></h1>
+  <p class="sub">Ada sesuatu yang ingin aku sampaikan...</p>
+
+  <section class="message">
+    <p>Aku mungkin nggak selalu pandai menyampaikan apa yang ada di pikiranku, tapi ada beberapa hal yang rasanya terlalu indah kalau cuma disimpan sendiri.</p>
+    <p>Salah satunya adalah tentang kamu. Tentang bagaimana seseorang bisa hadir dengan cara yang sederhana, tapi meninggalkan kesan yang begitu berarti.</p>
+    <p>Terima kasih untuk setiap senyum, setiap obrolan kecil, dan setiap momen yang mungkin terlihat biasa saja, tapi ternyata mampu membuat hari terasa jauh lebih menyenangkan.</p>
+    <p>Aku nggak ingin kamu merasa harus menjadi sempurna untuk pantas dihargai. Kamu nggak perlu berubah menjadi orang lain untuk menjadi seseorang yang berarti.</p>
+    <p class="special">Tetaplah menjadi dirimu sendiri. Karena ada sesuatu yang indah dari caramu menjadi kamu. 🌷❤️</p>
+  </section>
+
+  <div class="typing"><span id="typing"></span><span class="cursor"></span></div>
+
+  <button class="main" id="open">💌 Buka Pesan Rahasia</button>
+  <div class="footer">Dibuat dengan kode, waktu, dan sedikit rasa. ❤️</div>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <div class="modal-heart">💗</div>
+    <h2 id="modalTitle">Untuk Kamu...</h2>
+    <p>
+      Kalau kamu sudah sampai di sini, aku cuma ingin bilang satu hal:
+      <br><br><strong>Terima kasih sudah hadir.</strong><br><br>
+      Semoga sesibuk apa pun harimu, selalu ada sedikit ruang untuk tersenyum
+      dan mengingat bahwa kamu berharga. 🌸
+      <br><br>
+      Dan semoga selalu ada hal-hal kecil yang membuatmu bahagia,
+      bahkan di hari yang paling biasa sekalipun. ❤️
+    </p>
+    <button class="close" id="close">Tutup ❤️</button>
+  </div>
+</div>
+
+<script>
+const card=document.getElementById("card");
+const modal=document.getElementById("modal");
+const open=document.getElementById("open");
+const close=document.getElementById("close");
+const video=document.getElementById("video");
+const status=document.getElementById("status");
+const error=document.getElementById("error");
+const typing=document.getElementById("typing");
+
+let i=0;
+const text="Semoga pesan kecil ini bisa membuatmu tersenyum. ❤️";
+(function type(){if(i<text.length){typing.textContent+=text[i++];setTimeout(type,48)}})();
+
+video.addEventListener("play",()=>status.textContent="▶️ Memories");
+video.addEventListener("pause",()=>status.textContent="⏸️ Paused");
+video.addEventListener("error",()=>{error.classList.add("show");status.textContent="⚠️ Video error"});
+window.addEventListener("load",()=>video.play().catch(()=>status.textContent="▶️ Tekan play untuk mulai"));
+
+/* Real-time 3D tilt: desktop */
+if(window.matchMedia("(pointer:fine)").matches){
+  card.addEventListener("pointermove",e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg) translateZ(4px)`;
+  });
+  card.addEventListener("pointerleave",()=>card.style.transform="rotateX(0) rotateY(0) translateZ(0)");
+}
+
+function burst(x,y){
+  const icons=["❤️","💕","💗","💖","💓"];
+  for(let n=0;n<18;n++){
+    const el=document.createElement("span");
+    el.className="burst";
+    el.textContent=icons[Math.floor(Math.random()*icons.length)];
+    el.style.left=x+"px";el.style.top=y+"px";
+    const a=Math.random()*Math.PI*2,d=70+Math.random()*160;
+    el.style.setProperty("--x",Math.cos(a)*d+"px");
+    el.style.setProperty("--y",Math.sin(a)*d+"px");
+    el.style.setProperty("--r",(Math.random()*360-180)+"deg");
+    document.body.appendChild(el);
+    el.addEventListener("animationend",()=>el.remove(),{once:true});
+  }
+}
+function show(){
+  modal.classList.add("show");
+  document.body.style.overflow="hidden";
+  burst(innerWidth/2,innerHeight/2);
+  setTimeout(()=>close.focus(),100);
+}
+function hide(){
+  modal.classList.remove("show");
+  document.body.style.overflow="";
+  open.focus();
+}
+open.addEventListener("click",show);
+close.addEventListener("click",hide);
+modal.addEventListener("click",e=>{if(e.target===modal)hide()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("show"))hide()});
+</script>
+</body>
+</html>
