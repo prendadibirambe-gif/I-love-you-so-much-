@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#ff4d6d">
   <title>Untuk Kamu ❤️</title>
   
-  <!-- Font Premium -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -28,7 +27,6 @@
     .sphere {
       position: fixed;
       border-radius: 50%;
-      /* Efek cahaya 3D pada bola */
       background: radial-gradient(circle at 30% 30%, #ffffff, #ff758c 40%, #c9184a 90%);
       box-shadow: 0 20px 40px rgba(201, 24, 74, 0.3);
       z-index: 0;
@@ -44,7 +42,7 @@
       100% { transform: translateY(-40px) rotate(15deg); }
     }
 
-    /* --- KARTU UTAMA 3D (CLAYMORPHISM) --- */
+    /* --- KARTU UTAMA 3D --- */
     .card {
       position: relative;
       z-index: 10;
@@ -55,7 +53,6 @@
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border-radius: 40px;
-      /* Efek tebal dan menonjol */
       box-shadow: 
         0 30px 50px rgba(201, 24, 74, 0.15),
         inset 0 6px 15px rgba(255, 255, 255, 1),
@@ -83,7 +80,6 @@
       border-radius: 20px;
       background: #000;
       margin-bottom: 25px;
-      /* Frame video 3D menjorok ke dalam */
       box-shadow: 
         inset 0 10px 20px rgba(0,0,0,0.5),
         0 10px 20px rgba(255, 255, 255, 0.8);
@@ -155,7 +151,7 @@
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* --- TOMBOL 3D FISIK (ANTI BUG) --- */
+    /* --- TOMBOL 3D FISIK --- */
     .btn-3d {
       width: 100%;
       padding: 16px;
@@ -168,7 +164,6 @@
       font-weight: 700;
       cursor: pointer;
       position: relative;
-      /* Efek balok tebal */
       box-shadow: 
         0 8px 0 #c9184a, 
         0 15px 20px rgba(201, 24, 74, 0.3),
@@ -177,7 +172,6 @@
       transition: all 0.1s ease;
     }
     
-    /* Reaksi tombol saat ditekan */
     .btn-3d:active {
       transform: translateY(8px);
       box-shadow: 
@@ -186,7 +180,7 @@
         inset 0 4px 5px rgba(255, 255, 255, 0.2);
     }
 
-    /* --- MODAL / POP-UP (Pasti jalan 100%) --- */
+    /* --- MODAL / POP-UP (Anti Bug) --- */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -194,7 +188,7 @@
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
       z-index: 9999;
-      display: none; /* Mati total dari sistem saat tidak dipanggil */
+      display: none; 
       justify-content: center;
       align-items: center;
       padding: 20px;
@@ -210,7 +204,6 @@
       transform: scale(0.8) translateY(30px);
       opacity: 0;
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      /* 3D Box Shadow */
       box-shadow: 0 30px 60px rgba(0,0,0,0.3), inset 0 5px 15px rgba(255,255,255,1);
     }
     
@@ -234,7 +227,6 @@
     }
     .btn-close:active { background: #ff4d6d; color: #fff; transform: scale(0.95); }
 
-    /* Efek Partikel */
     .particle {
       position: fixed; pointer-events: none; z-index: 10000;
       animation: explode 1s ease-out forwards;
@@ -275,7 +267,6 @@
       <span class="typing-text" id="typewriter"></span><span class="cursor"></span>
     </div>
 
-    <!-- TOMBOL PANGGIL JAVASCRIPT LANGSUNG (ANTI BUG) -->
     <button class="btn-3d" onclick="bukaPesan()">💌 Buka Pesan Rahasia</button>
   </main>
 
@@ -293,7 +284,6 @@
   </div>
 
   <script>
-    // --- 1. EFEK KETIK ---
     const words = ["Semoga harimu menyenangkan...", "Kamu sangat berharga...", "Terima kasih untuk segalanya ✨"];
     let i = 0, j = 0, isDeleting = false;
     const typewriter = document.getElementById("typewriter");
@@ -320,41 +310,30 @@
     }
     type();
 
-    // --- 2. LOGIKA TOMBOL & MODAL (SANGAT AMAN) ---
     const modalOverlay = document.getElementById('modalRahasia');
     const modalKonten = document.getElementById('modalKonten');
 
     function bukaPesan() {
-      // Nyalakan elemen ke layar
       modalOverlay.style.display = 'flex';
-      
-      // Kasih delay 10ms biar animasinya main halus
       setTimeout(() => {
         modalKonten.style.transform = 'scale(1) translateY(0)';
         modalKonten.style.opacity = '1';
       }, 10);
-      
-      // Ledakan Partikel
       bikinPartikel();
     }
 
     function tutupPesan() {
-      // Mainkan animasi mundur
       modalKonten.style.transform = 'scale(0.8) translateY(30px)';
       modalKonten.style.opacity = '0';
-      
-      // Hilangkan total dari layar setelah animasi selesai
       setTimeout(() => {
         modalOverlay.style.display = 'none';
-      }, 400); // 400ms sama dengan waktu transisi CSS
+      }, 400); 
     }
 
-    // Tutup kalau area gelap di luar kotak diklik
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) tutupPesan();
     });
 
-    // --- 3. PARTIKEL ---
     function bikinPartikel() {
       const emojis = ['✨', '💖', '🌸'];
       for (let p = 0; p < 20; p++) {
